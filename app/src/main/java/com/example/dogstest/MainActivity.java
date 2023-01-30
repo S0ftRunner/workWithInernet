@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(MainViewModel.class); // подключаем вью модель
         viewModel.downloadDogImage(); // скачиваем фото
 
-        viewModel.getIsLoading().observe(this, new Observer<Boolean>() {
+        viewModel.getIsLoading().observe(this, new Observer<Boolean>() { // нужно для того, чтобы показывать прогрессбар
             @Override
             public void onChanged(Boolean loading) {
                 if (loading)
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        viewModel.getIsInternet().observe(this, new Observer<Boolean>() {
+        viewModel.getIsInternet().observe(this, new Observer<Boolean>() { // проверяем подключение интернета
             @Override
             public void onChanged(Boolean isInternetOn) {
                 if (!isInternetOn)
@@ -68,13 +68,13 @@ public class MainActivity extends AppCompatActivity {
         viewModel.getDogImage().observe(this, new Observer<DogImage>() { // получаем фото
             @Override
             public void onChanged(DogImage dogImage) {
-                Glide.with(MainActivity.this)// загрузка фото в ImageView
+                Glide.with(MainActivity.this) // загрузка фото в ImageView
                         .load(dogImage.getMessage())
                         .into(imageViewdogs);
             }
         });
 
-        buttonGetImage.setOnClickListener(new View.OnClickListener() {
+        buttonGetImage.setOnClickListener(new View.OnClickListener() { // реагирование на нажатие кнопки
             @Override
             public void onClick(View v) {
                 viewModel.downloadDogImage();

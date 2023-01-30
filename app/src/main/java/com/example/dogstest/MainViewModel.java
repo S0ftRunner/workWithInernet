@@ -27,16 +27,13 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainViewModel extends AndroidViewModel {
 
-    private static final String BASE_URL = "https://dog.ceo/api/breeds/image/random";
-    private static final String KEY_MESSAGE = "message";
-    private static final String KEY_STATUS = "status";
     private static final String logMessage = "MainViewModel";
 
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
-    private MutableLiveData<DogImage> dogImage = new MutableLiveData<>();
-    private MutableLiveData<Boolean> isLoading = new MutableLiveData<>();
-    private MutableLiveData<Boolean> isInternet = new MutableLiveData<>();
+    private MutableLiveData<DogImage> dogImage = new MutableLiveData<>(); // реагирование на загрузку фото
+    private MutableLiveData<Boolean> isLoading = new MutableLiveData<>(); // реагирование на загрузку для ProgressBar
+    private MutableLiveData<Boolean> isInternet = new MutableLiveData<>(); // реагирование на подключение
 
 
     public LiveData<DogImage> getDogImage() {
