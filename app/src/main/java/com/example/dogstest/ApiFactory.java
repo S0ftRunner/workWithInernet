@@ -17,7 +17,7 @@ public class ApiFactory {
                     .addConverterFactory(GsonConverterFactory.create()) // договариваемся о том, что преобразование JSON объектов экземпляров нашего класса мы будем преобразовывать через Gson
                     .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                     .build();
-            retrofit.create(ApiService.class);
+           apiService = retrofit.create(ApiService.class);
         }
         return apiService;
 
