@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DogsTest</string>
+    <string name="next_image">next image</string>
+    <string name="error_connection">Отсутствует интернет подключение!</string>
+</resources>
